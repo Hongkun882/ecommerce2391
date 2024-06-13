@@ -178,7 +178,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 MEDIA_URL = '/images/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'frontend/build/static'
+   os.path.join(BASE_DIR, 'frontend/build/static')
 ]
 
 MEDIA_ROOT = "static/images"
