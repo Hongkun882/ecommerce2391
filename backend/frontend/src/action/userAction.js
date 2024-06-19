@@ -8,7 +8,7 @@ export const login = (username, password) => async (dispatch) => {
                 'Content-type': 'application/json'
             }
         }
-        const { data } = await axios.post('http://localhost:8000/api/users/login/', { username: username, password: password }, config)
+        const { data } = await axios.post('https://ecommerce2391.onrender.com/api/users/login/', { username: username, password: password }, config)
 
         dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data })
         localStorage.setItem('userInfo', JSON.stringify(data))
@@ -38,7 +38,7 @@ export const register = (username, email, password) => async (dispatch) => {
                 'Content-type': 'application/json'
             }
         }
-        const { data } = await axios.post('http://localhost:8000/api/users/register/', { name: username, password: password, email: email }, config)
+        const { data } = await axios.post('https://ecommerce2391.onrender.com/api/users/register/', { name: username, password: password, email: email }, config)
 
         dispatch({ type: 'USER_REGISTER_SUCCESS', payload: data })
         dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data })
@@ -64,7 +64,7 @@ export const getUserProfile = (_id) => async (dispatch, getState) => {
                 Authorization: `Bearer ${userInfo.token}`
             }
         }
-        const { data } = await axios.get(`http://localhost:8000/api/users/${_id}/`, config)
+        const { data } = await axios.get(`https://ecommerce2391.onrender.com/api/users/${_id}/`, config)
 
         dispatch({ type: 'USER_PROFILE_SUCCESS', payload: data })
 
@@ -89,7 +89,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
                 Authorization: `Bearer ${userInfo.token}`
             }
         }
-        const { data } = await axios.put(`http://localhost:8000/api/users/profile/update/`, user, config)
+        const { data } = await axios.put(`https://ecommerce2391.onrender.com/api/users/profile/update/`, user, config)
 
         dispatch({ type: 'USER_UPDATE_PROFILE_SUCCESS', payload: data })
         dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data })
@@ -117,7 +117,7 @@ export const getUserList = () => async (dispatch, getState) => {
             }
         }
 
-        const { data } = await axios.get('http://localhost:8000/api/users/', config);
+        const { data } = await axios.get('https://ecommerce2391.onrender.com/api/users/', config);
         dispatch({ type: 'USER_LIST_SUCCESS', payload: data })
     } catch (error) {
         dispatch({
@@ -138,7 +138,7 @@ export const deleteUser = (_id) => async (dispatch, getState) =>{
                 Authorization: `Bearer ${userInfo.token}`
             }
         }
-        await axios.delete(`http://localhost:8000/api/users/delete/${_id}/`, config);
+        await axios.delete(`https://ecommerce2391.onrender.com/api/users/delete/${_id}/`, config);
         dispatch({type: "USER_DELETE_SUCCESS"})
     } catch (error) {
         dispatch({
@@ -160,7 +160,7 @@ export const updateUser = (_id, user) => async (dispatch, getState) =>{
                 Authorization: `Bearer ${userInfo.token}`
             }
         }
-        const {data} = await axios.put(`http://localhost:8000/api/users/update/${_id}/`, user, config);
+        const {data} = await axios.put(`https://ecommerce2391.onrender.com/api/users/update/${_id}/`, user, config);
         dispatch({type: "USER_UPDATE_SUCCESS", payload:data})
     } catch (error) {
         dispatch({

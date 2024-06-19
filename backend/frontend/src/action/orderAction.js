@@ -13,7 +13,7 @@ export const createOrder = (order) => async(dispatch, getState) => {
             }
         }
 
-        const {data} = await axios.post("http://localhost:8000/api/orders/add/",order, config)
+        const {data} = await axios.post("https://ecommerce2391.onrender.com/api/orders/add/",order, config)
         dispatch({type: "ORDER_CREATE_SUCCESS", payload:data})
 
 
@@ -40,7 +40,7 @@ export const getOrderDetail = (_id) => async(dispatch, getState) => {
             }
         }
         
-        const {data} = await axios.get(`http://localhost:8000/api/orders/${_id}/`, config)
+        const {data} = await axios.get(`https://ecommerce2391.onrender.com/api/orders/${_id}/`, config)
         dispatch({type: "ORDER_DETAIL_SUCCESS", payload:data})
 
 
@@ -67,7 +67,7 @@ export const payOrder = (_id,paymentResult) => async(dispatch, getState) => {
             }
         }
         
-        await axios.put(`http://localhost:8000/api/orders/${_id}/pay`,paymentResult, config)
+        await axios.put(`https://ecommerce2391.onrender.com/api/orders/${_id}/pay`,paymentResult, config)
         dispatch({type: "ORDER_PAY_SUCCESS"})
 
 
@@ -94,7 +94,7 @@ export const getMyOrders = () => async(dispatch, getState) => {
             }
         }
         
-        const {data} = await axios.get(`http://localhost:8000/api/orders/myorders/`, config)
+        const {data} = await axios.get(`https://ecommerce2391.onrender.com/api/orders/myorders/`, config)
         dispatch({type: "MYORDER_SUCCESS", payload: data})
 
 
@@ -121,7 +121,7 @@ export const getOrderList = () => async(dispatch, getState) => {
             }
         }
         
-        const {data} = await axios.get(`http://localhost:8000/api/orders/`, config)
+        const {data} = await axios.get(`https://ecommerce2391.onrender.com/api/orders/`, config)
         dispatch({type: "ORDER_LIST_SUCCESS", payload: data})
 
 
@@ -149,7 +149,7 @@ export const deliverOrder = (_id) => async(dispatch, getState) => {
         }
         console.log(token)
         
-        await axios.put(`http://localhost:8000/api/orders/${_id}/deliver/`,{}, config)
+        await axios.put(`https://ecommerce2391.onrender.com/api/orders/${_id}/deliver/`,{}, config)
         dispatch({type: "ORDER_DELIVER_SUCCESS"})
 
 

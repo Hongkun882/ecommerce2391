@@ -18,7 +18,7 @@ export const Listproducts = (keyword,page) => async (dispatch) => {
             query=`?keyword=${keyword}&page=${page}`
         }
         
-        const { data } = await axios.get(`http://localhost:8000/api/products/${query}`);
+        const { data } = await axios.get(`https://ecommerce2391.onrender.com/api/products/${query}`);
         dispatch({ type: "PRODUCT_LIST_SUCCESS", payload: data })
     } catch (error) {
         dispatch({
@@ -31,7 +31,7 @@ export const Listproducts = (keyword,page) => async (dispatch) => {
 export const ListproductDetail = (_id) => async (dispatch) => {
     try {
         dispatch({ type: "PRODUCT_DETAIL_REQUEST" });
-        const { data } = await axios.get(`http://localhost:8000/api/products/${_id}/`);
+        const { data } = await axios.get(`https://ecommerce2391.onrender.com/api/products/${_id}/`);
         dispatch({ type: "PRODUCT_DETAIL_SUCCESS", payload: data })
     } catch (error) {
         dispatch({
@@ -52,7 +52,7 @@ export const deleteProduct = (_id) => async (dispatch, getState) => {
                 Authorization: `Bearer ${userInfo.token}`
             }
         }
-        await axios.delete(`http://localhost:8000/api/products/${_id}/delete/`, config);
+        await axios.delete(`https://ecommerce2391.onrender.com/api/products/${_id}/delete/`, config);
         dispatch({ type: "PRODUCT_DELETE_SUCCESS" })
     } catch (error) {
         dispatch({
@@ -74,7 +74,7 @@ export const createProduct = () => async (dispatch, getState) => {
             }
         }
         
-        const {data} = await axios.post("http://localhost:8000/api/products/create/",{}, config);
+        const {data} = await axios.post("https://ecommerce2391.onrender.com/api/products/create/",{}, config);
         dispatch({ type: "PRODUCT_CREATE_SUCCESS", payload:data })
     } catch (error) {
         dispatch({
@@ -96,7 +96,7 @@ export const updateProduct = (product,_id) => async (dispatch, getState) => {
             }
         }
         
-        const {data} = await axios.put(`http://localhost:8000/api/products/${_id}/update/`,product, config);
+        const {data} = await axios.put(`https://ecommerce2391.onrender.com/api/products/${_id}/update/`,product, config);
         dispatch({ type: "PRODUCT_UPDATE_SUCCESS", payload:data, success:true
     
     
@@ -123,7 +123,7 @@ export const createProductReview = (_id,review_data) => async (dispatch, getStat
             }
         }
         
-        await axios.post(`http://localhost:8000/api/products/${_id}/create-review/`,review_data, config);
+        await axios.post(`https://ecommerce2391.onrender.com/api/products/${_id}/create-review/`,review_data, config);
         dispatch({ type: "PRODUCT_REVIEW_CREATE_SUCCESS" })
     } catch (error) {
         
@@ -134,7 +134,7 @@ export const getTopProducts = () => async (dispatch) => {
 
     try {
         dispatch({type: "TOP_PRODUCT_REQUEST"})
-        const {data} = await axios.get("http://localhost:8000/api/products/top-products/")
+        const {data} = await axios.get("https://ecommerce2391.onrender.com/api/products/top-products/")
         dispatch({type: "TOP_PRODUCT_SUCCESS", payload: data})
     } catch (error) {
         dispatch({
