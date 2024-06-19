@@ -71,7 +71,7 @@ function EditProductPage() {
             data.append("image", file)
             const config = {header:{'Content-Type': 'multipart/form-data'}}
 
-            await axios.post('http://localhost:8000/api/products/upload/',data,config)
+            await axios.post('https://ecommerce2391.onrender.com/api/products/upload/',data,config)
         } catch (error) {
             setUploadError("Uploading image file failed")
         }
