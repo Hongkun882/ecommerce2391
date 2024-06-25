@@ -20,7 +20,7 @@ function Header() {
       <Navbar bg="primary" data-bs-theme="dark" className="mb-3">
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>Navbar</Navbar.Brand>
+            <Navbar.Brand>Shopping App</Navbar.Brand>
           </LinkContainer>
 
           <Nav className="me-auto">
