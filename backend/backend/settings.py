@@ -135,7 +135,7 @@ DATABASES = {
         "NAME": "ecommerce",
         "USER": os.environ.get('DATABASE_USERNAME'),
         'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
-        "HOST": "database-1.cvicgqkqgals.us-east-2.rds.amazonaws.com",
+        "HOST": "my-database.cps26quaw8k9.us-east-1.rds.amazonaws.com",
         "PORT": "5432",
     }
 }
